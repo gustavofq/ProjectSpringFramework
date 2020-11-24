@@ -42,5 +42,12 @@ public class AgendaApplication {
 		repo.save(unaPersona);
 		return "greeting";
 	}
+	
+	@GetMapping("/listar")
+	public String listar(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+		model.addAttribute("name", repo.getOne(1));
+		
+		return "greeting";
+	}
 
 }
